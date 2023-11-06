@@ -1,8 +1,8 @@
 {
-    "pic_height": 1560,
-    "pic_width": 1080,
-    "repoUrl": "git@github.com:CICSilver/PicMov.git",
-    "scroll_interval": 200,
-    "scroll_speed": 20,
-    "version": "1.0.0"
+  "pic_height": 5404,
+  "pic_width": 3860,
+  "repoUrl": "git@github.com:CICSilver/PicMov.git",
+  "scroll_interval": 500,
+  "scroll_speed": 100,
+  "version": "1.0.0"
 }

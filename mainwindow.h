@@ -2,8 +2,8 @@
 
 #include <QtWidgets/QMainWindow>
 #include "ui_mainwindow.h"
-#define DEFAULT_PIC_WIDTH   1080
-#define DEFAULT_PIC_HEIGHT  1560
+#define DEFAULT_PIC_WIDTH   3840
+#define DEFAULT_PIC_HEIGHT  2160
 class UiConfig;
 class MainWindow : public QMainWindow
 {

@@ -363,3 +363,6 @@ MigrationBackup/
 FodyWeavers.xsd
 /test.vcxproj
 /test.vcxproj.filters
+*.qrc
+*.vcxproj
+*.filters

@@ -59,7 +59,7 @@ void MainWindow::setImage(const QPixmap& pixmap)
 
 bool MainWindow::eventFilter(QObject* obj, QEvent* event)
 {
-    if (obj == ui.picView && event->type() == QEvent::MouseButtonDblClick)
+    if (obj == ui.picView && event->type() == QEvent::MouseButtonPress)
     {
         if (!m_is_scrolling)
             startScroll();
@@ -67,7 +67,7 @@ bool MainWindow::eventFilter(QObject* obj, QEvent* event)
             stopScroll();
         m_is_scrolling = !m_is_scrolling;
     }
-    return QMainWindow::eventFilter(obj, event);
+    return QMainWindow::eventFilter(obj, event); 
 }
 
 void MainWindow::on_configAct_triggered()

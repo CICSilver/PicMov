@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     MainWindow w;
     QTextCodec::setCodecForLocale(QTextCodec::codecForName("GB2312"));
-    w.setImage("D:\\work_space\\github_repos\\test\\resource\\page_2.jpg");
+    w.setImage("resource/page_2.jpg");
     w.show();
     return a.exec();
 }

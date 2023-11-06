@@ -6,19 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>246</width>
-    <height>172</height>
+    <width>799</width>
+    <height>546</height>
    </rect>
   </property>
   <property name="sizePolicy">
-   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
   </property>
   <property name="maximumSize">
    <size>
-    <width>262</width>
+    <width>16777215</width>
     <height>16777215</height>
    </size>
   </property>
@@ -30,13 +30,30 @@
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QLabel" name="label">
+       <property name="styleSheet">
+        <string notr="true">font: 36pt &quot;AniMe Matrix - MB_EN&quot;;</string>
+       </property>
        <property name="text">
         <string>滚动速度</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="speedEdit"/>
+      <widget class="QLineEdit" name="speedEdit">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 36pt &quot;AniMe Matrix - MB_EN&quot;;
+font: 36pt &quot;黑体&quot;;</string>
+       </property>
+       <property name="text">
+        <string>200</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>
@@ -44,13 +61,30 @@
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
       <widget class="QLabel" name="label_2">
+       <property name="styleSheet">
+        <string notr="true">font: 36pt &quot;AniMe Matrix - MB_EN&quot;;</string>
+       </property>
        <property name="text">
         <string>滚动间隔</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="intervalEdit"/>
+      <widget class="QLineEdit" name="intervalEdit">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 36pt &quot;AniMe Matrix - MB_EN&quot;;
+font: 36pt &quot;黑体&quot;;</string>
+       </property>
+       <property name="text">
+        <string>100</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>
@@ -58,13 +92,30 @@
     <layout class="QHBoxLayout" name="horizontalLayout_3">
      <item>
       <widget class="QLabel" name="label_3">
+       <property name="styleSheet">
+        <string notr="true">font: 36pt &quot;AniMe Matrix - MB_EN&quot;;</string>
+       </property>
        <property name="text">
         <string>图片宽度</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="widthEdit"/>
+      <widget class="QLineEdit" name="widthEdit">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 36pt &quot;AniMe Matrix - MB_EN&quot;;
+font: 36pt &quot;黑体&quot;;</string>
+       </property>
+       <property name="text">
+        <string>300</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>
@@ -72,13 +123,30 @@
     <layout class="QHBoxLayout" name="horizontalLayout_4">
      <item>
       <widget class="QLabel" name="label_4">
+       <property name="styleSheet">
+        <string notr="true">font: 36pt &quot;AniMe Matrix - MB_EN&quot;;</string>
+       </property>
        <property name="text">
         <string>图片高度</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="heightEdit"/>
+      <widget class="QLineEdit" name="heightEdit">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 36pt &quot;AniMe Matrix - MB_EN&quot;;
+font: 36pt &quot;黑体&quot;;</string>
+       </property>
+       <property name="text">
+        <string>500</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>
@@ -86,6 +154,15 @@
     <layout class="QHBoxLayout" name="horizontalLayout_5">
      <item>
       <widget class="QPushButton" name="confirmBtn">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 36pt &quot;AniMe Matrix - MB_EN&quot;;</string>
+       </property>
        <property name="text">
         <string>确认</string>
        </property>
@@ -93,6 +170,15 @@
      </item>
      <item>
       <widget class="QPushButton" name="cancelBtn">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 36pt &quot;AniMe Matrix - MB_EN&quot;;</string>
+       </property>
        <property name="text">
         <string>取消</string>
        </property>

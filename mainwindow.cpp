@@ -8,6 +8,9 @@
 #include <QLabel>
 #include <QKeyEvent>
 #include "configmanager.h"
+#include <QScreen>
+#include <QLabel>
+#include <QFileDialog>
 #ifdef __DEBUG
 #include <QDebug>
 #endif
@@ -25,11 +28,25 @@ MainWindow::MainWindow(QWidget *parent, int _interval, int _speed)
     m_imageItem = nullptr;
     m_is_scrolling = false;
     m_is_finished = false;
+    m_statusLabel = nullptr;
     m_timer = new QTimer(this);
-    setPicSize(QSize(DEFAULT_PIC_WIDTH, DEFAULT_PIC_HEIGHT));
 
     // 读取配置
     updateFromConfig();
+
+    if (m_pic_size.width() == DEFAULT_PIC_WIDTH)
+    {
+        // 默认使用屏幕宽度
+        QScreen* screen = QGuiApplication::primaryScreen();
+        QRect screenGeometry = screen->availableGeometry();
+        int width = screenGeometry.width();
+        int height = width * sqrt(2);
+        setPicSize(QSize(width, height));
+    }
+
+    // 创建资源目录
+    QDir dir;
+    dir.mkdir("./resource");
 
     // 注册事件过滤器
     ui.picView->installEventFilter(this);
@@ -41,6 +58,8 @@ MainWindow::MainWindow(QWidget *parent, int _interval, int _speed)
 
     // 更新状态栏
     updateStatusBar();
+
+    this->showFullScreen();
 }
 
 void MainWindow::updateFromConfig()
@@ -49,6 +68,7 @@ void MainWindow::updateFromConfig()
     m_scroll_speed = data->scroll_speed;
     m_scroll_interval = data->scroll_interval;
     m_pic_size = QSize(data->pic_width, data->pic_height);
+    setPicSize(m_pic_size);
 }
 
 void MainWindow::setImage(const QPixmap& pixmap)
@@ -70,7 +90,7 @@ bool MainWindow::eventFilter(QObject* obj, QEvent* event)
     return QMainWindow::eventFilter(obj, event); 
 }
 
-void MainWindow::on_configAct_triggered()
+void MainWindow::on_cfgBtn_clicked()
 {
     m_config = new UiConfig(m_scroll_speed, m_scroll_interval, m_pic_size.width(), m_pic_size.height(), this);
     auto result = m_config->exec();
@@ -81,6 +101,16 @@ void MainWindow::on_configAct_triggered()
         updateFromConfig();
         ConfigManager::Get()->SaveConfigFile();
     }
+}
+
+void MainWindow::on_openBtn_clicked()
+{
+    QFileDialog fileDialog(this);
+    QString path = fileDialog.getOpenFileName(this, QStringLiteral("选择图片"), "./resource", QStringLiteral("图片文件(*.jpg *.png)"));
+    if (!path.isEmpty())
+    {
+	    setImage(path);
+	}
 }
 
 void MainWindow::setImage(const QString& path)
@@ -98,17 +128,21 @@ void MainWindow::setImage(const QString& path)
 void MainWindow::updateStatusBar()
 {
     // 设置状态栏
-    QLabel* statusLabel = new QLabel;
-    statusLabel->setMinimumSize(150, 20);
-    statusLabel->setFrameShape(QFrame::WinPanel);
-    statusLabel->setFrameShadow(QFrame::Sunken);
-    ui.statusBar->addWidget(statusLabel);
+    if (!m_statusLabel)
+    {
+        // 初始化
+        m_statusLabel = new QLabel;
+        m_statusLabel->setMinimumSize(150, 20);
+        m_statusLabel->setFrameShape(QFrame::WinPanel);
+        m_statusLabel->setFrameShadow(QFrame::Sunken);
+        ui.statusBar->addWidget(m_statusLabel);
+    }
     QString text = QString("%1=%2    %3=%4")
         .arg(QStringLiteral("滚动速度"))
         .arg(QString::number(m_scroll_speed))
         .arg(QStringLiteral("滚动间隔"))
         .arg(QString::number(m_scroll_interval));
-    statusLabel->setText(text);
+    m_statusLabel->setText(text);
 }
 
 void MainWindow::startScroll()

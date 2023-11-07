@@ -2,9 +2,10 @@
 
 #include <QtWidgets/QMainWindow>
 #include "ui_mainwindow.h"
-#define DEFAULT_PIC_WIDTH   3840
-#define DEFAULT_PIC_HEIGHT  2160
+#define DEFAULT_PIC_WIDTH   1080
+//#define DEFAULT_PIC_HEIGHT  2160
 class UiConfig;
+class QLabel;
 class MainWindow : public QMainWindow
 {
 	Q_OBJECT
@@ -49,7 +50,9 @@ protected:
 private slots:
 	void scrollImage();
 
-	void on_configAct_triggered();
+	void on_cfgBtn_clicked();
+
+	void on_openBtn_clicked();
 
 	//void on_startBtn_clicked();
 
@@ -61,6 +64,7 @@ private:
 	QGraphicsScene* m_scene;
 	QGraphicsPixmapItem* m_imageItem;
 	QTimer* m_timer;
+	QLabel* m_statusLabel;
 	int m_scroll_speed;
 	int m_scroll_interval;
 	bool m_is_scrolling;

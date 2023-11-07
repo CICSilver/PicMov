@@ -96,10 +96,10 @@ void MainWindow::on_cfgBtn_clicked()
     auto result = m_config->exec();
     if (result == QDialog::Accepted)
     {
-        updateStatusBar();
         // 应用配置并保存
         updateFromConfig();
         ConfigManager::Get()->SaveConfigFile();
+        updateStatusBar();
     }
 }
 
@@ -160,11 +160,13 @@ void MainWindow::scrollImage()
     auto pScrollbar = ui.picView->verticalScrollBar();
     int cur_scroll_pos = pScrollbar->value();
     if (cur_scroll_pos >= pScrollbar->maximum()) {
+        // 当前页滚动结束
         stopScroll();
+        // TODO: 翻到下一页
     }
     else
     {
-        pScrollbar->setValue(cur_scroll_pos + 10);
+        pScrollbar->setValue(cur_scroll_pos + m_scroll_speed);
     }
 }
 

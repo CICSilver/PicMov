@@ -2,5 +2,6 @@
     <qresource prefix="/MainWindow">
         <file>Resources/config.png</file>
         <file>Resources/open.png</file>
+        <file>Resources/close.png</file>
     </qresource>
 </RCC>

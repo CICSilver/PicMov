@@ -59,7 +59,7 @@ MainWindow::MainWindow(QWidget *parent, int _interval, int _speed)
     // ¸üÐÂ×´Ì¬À¸
     updateStatusBar();
 
-    this->showFullScreen();
+    this->showMaximized();
 }
 
 void MainWindow::updateFromConfig()

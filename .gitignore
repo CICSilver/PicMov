@@ -366,3 +366,4 @@ FodyWeavers.xsd
 *.qrc
 *.vcxproj
 *.filters
+/config.json

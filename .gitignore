@@ -368,3 +368,8 @@ FodyWeavers.xsd
 *.filters
 /config.json
 *.zip
+/scroller_x64/scroller_x64/Qt5Core.dll
+/scroller_x64/scroller_x64/Qt5Gui.dll
+/scroller_x64/scroller_x64/Qt5Widgets.dll
+/scroller_x64/scroller_x64/Scroller.exe
+/scroller_x64/scroller_x64
